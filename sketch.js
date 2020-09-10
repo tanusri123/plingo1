@@ -76,4 +76,20 @@ function draw() {
      
      divisions[k].display();
    }
+   function mousePressed(){
+     if(gameState!=="end"){
+       count++;
+       particle = new Particle(mouseX, 10 ,10,10)
+     }
+   }
+   if(particle!=null){
+     particle.display();
+     if(particle.body.position.y=760){
+       if(particle.body.positon.x<300){
+         score = score + 500;
+         particle = null;
+         if(count>=5)gameState = "END"
+       }
+     }
+   }
 }
